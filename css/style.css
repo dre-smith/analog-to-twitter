@@ -1,0 +1,309 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html {
+	height: 100%;
+}
+body {
+	line-height: 1;
+	font-family: 'Arial', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Подключение шрифтов */
+
+@font-face {
+	font-family: 'Proxima Nova Black';
+	src: url('../fonts/ProximaNova-Black.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Black.woff') format('woff'), url('../fonts/ProximaNova-Black.ttf') format('truetype'), url('../fonts/ProximaNova-Black.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Bold';
+	src: url('../fonts/ProximaNova-Bold.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Bold.woff') format('woff'), url('../fonts/ProximaNova-Bold.ttf') format('truetype'), url('../fonts/ProximaNova-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Cond Regular';
+	src: url('../fonts/ProximaNovaCond-Regular.eot');
+	src: local('☺'), url('../fonts/ProximaNovaCond-Regular.woff') format('woff'), url('../fonts/ProximaNovaCond-Regular.ttf') format('truetype'), url('../fonts/ProximaNovaCond-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Extrabld';
+	src: url('../fonts/ProximaNova-Extrabld.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Extrabld.woff') format('woff'), url('../fonts/ProximaNova-Extrabld.ttf') format('truetype'), url('../fonts/ProximaNova-Extrabld.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Light';
+	src: url('../fonts/ProximaNova-Light.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Light.woff') format('woff'), url('../fonts/ProximaNova-Light.ttf') format('truetype'), url('../fonts/ProximaNova-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Regular';
+	src: url('../fonts/ProximaNova-Regular.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Regular.woff') format('woff'), url('../fonts/ProximaNova-Regular.ttf') format('truetype'), url('../fonts/ProximaNova-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Semibold';
+	src: url('../fonts/ProximaNova-Semibold.eot');
+	src: local('☺'), url('../fonts/ProximaNova-Semibold.woff') format('woff'), url('../fonts/ProximaNova-Semibold.ttf') format('truetype'), url('../fonts/ProximaNova-Semibold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Стили для тегов */
+
+h2 {
+	font-size: 30px;
+	font-family: 'Proxima Nova Extrabld';
+}
+
+h3 {
+	font-size: 20px;
+	font-family: 'Proxima Nova Bold';
+}
+
+span {
+	font-size: 15px;
+	font-family: 'Proxima Nova Light';
+}
+
+p {
+	font-size: 15px;
+	font-family: 'Proxima Nova Regular';
+}
+
+a {
+	font-size: 17px;
+	font-family: 'Proxima Nova Semibold';
+	color: #94cc2f;
+}
+
+input {
+	width: 259px;
+	height: 45px;
+	border: 0;
+	border-radius: 22px;
+	font-size: 15px;
+	color: #1e90c8;
+	background-color: #ffffff;
+	box-shadow: 0 5px 20px 0 #e9e9e9;
+	outline: none;
+}
+
+button {
+	width: 174px;
+	height: 45px;
+	border: 0;
+	border-radius: 23px;
+	font-size: 14px;
+	font-family: 'Proxima Nova Semibold';
+	color: #ffffff;
+	background-color: #1e90c8;
+	box-shadow: 0 7px 10px 0 #5dafd7;
+	outline: none;
+}
+
+button:hover {
+	background-color: #94cc2f;
+	box-shadow: 0 7px 10px 0 #b1d968;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+/* Основные классы */
+
+.container {
+	width: 100%;
+	max-width: 1366px;
+	margin: auto;
+}
+
+/* Блок ACTION */
+
+.action {
+	height: 238px;
+	background-color: #fbfbfb;
+}
+
+.action__form {
+	display: flex;
+	width: 745px;
+	margin: auto;
+}
+
+.action__form_1 {
+	width: 533px;
+}
+
+.action__form_2 {
+	flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+}
+
+/* Блок REASONS !классы без БЭМ! */
+
+.reasons {
+	background-color: #ffffff;
+}
+
+.reason__flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	max-width: 1120px;
+}
+
+.reasons__blocks {
+	width: 525px;
+	min-height: 278px;
+	margin-bottom: 22px;
+	padding: 40px 0 0 40px;
+	border-radius: 10px;
+	box-shadow: 0 7px 10px 0 #5dafd7;
+}
+
+.reasons__blocks h3 {
+ padding-bottom: 30px;
+}
+
+.reasons__blocks p {
+	max-width: 373px;
+}
+
+/* Блок PRICE */
+
+.price {
+	background-color: #fbfbfb;
+}
+
+/* Блок ABOUT */
+
+.about {
+	max-height: 595px;
+	background-color: #fbfbfb;
+}
+
+.about__title {
+	padding: 65px 0 50px;
+	text-align: center;
+}
+
+.about__title-color {
+	font-size: 30px;
+	font-family: 'Proxima Nova Extrabld';
+	color: #1e90c8;
+}
+
+.about__row {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 1170px;
+	padding-bottom: 78px;
+}
+
+.about__column {
+	background-color: #ffffff;
+}
+
+.item-about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 377px;
+	padding: 32px 35px 48px 43px;
+}
+
+.item-about__text {
+	padding-top: 30px;
+	text-align: center;
+}
+
+/* Блок SLIDER */
+
+/* Блок BRIF */
+
+.brif {
+	background-color: #fbfbfb;
+}
+
+.brif__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Блок INFO */
+
+.info {
+	text-align: center;
+}
+
+/* Блок FOOTER */
+
+.footer {
+	position: relative;
+}
+
+.map {
+	position: absolute;
+}

@@ -27,3 +27,7 @@ function db_query($sql, $exec = false) {
 
     return db()->query($sql);
 }
+
+function get_posts() {
+    return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id");
+}

@@ -28,6 +28,8 @@ function db_query($sql, $exec = false) {
     return db()->query($sql);
 }
 
-function get_posts() {
-    return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id");
+function get_posts($user_id = 0) {
+    if ($user_id > 0) return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id WHERE posts.user_id = $user_id;");
+
+    return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id;");
 }

@@ -10,7 +10,7 @@
 					<div class="tweet__wrapper">
 						<header class="tweet__header">
 							<h3 class="tweet-author"><?php echo $post['name']; ?>
-								<a href="#" class="tweet-author__add tweet-author__nickname"><?php echo $post['login']; ?></a>
+								<a href="<?php echo get_url('user_posts.php?id=' . $post['user_id']); ?>" class="tweet-author__add tweet-author__nickname">@<?php echo $post['login']; ?></a>
 								<time class="tweet-author__add tweet__date"><?php echo date('d.m.y в H:i', strtotime($post['date'])); ?></time>
 							</h3>
 							<button class="tweet__delete-button chest-icon"></button>

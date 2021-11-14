@@ -59,7 +59,7 @@ function add_user($login, $pass) {
     $password = password_hash($pass, PASSWORD_DEFAULT);
     $name = ucfirst($login);
 
-    return db_query("INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (NULL, '$login', $password, '$name');", true);
+    return db_query("INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (NULL, '$login', '$password', '$name');", true);
 }
 
 function register_user($auth_data) {

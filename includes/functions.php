@@ -6,6 +6,7 @@ function debug($var, $stop = false) {
     echo "<pre>";
     print_r($var);
     echo "</pre>";
+
     if ($stop) die;
 }
 
@@ -57,13 +58,46 @@ function add_user($login, $pass) {
     $login = trim($login);
     $password = password_hash($pass, PASSWORD_DEFAULT);
     $name = ucfirst($login);
+
     return db_query("INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (NULL, '$login', $password, '$name');", true);
 }
 
 function register_user($auth_data) {
-    debug($auth_data, true);
+    if (empty($auth_data) || !isset($auth_data['login']) || empty($auth_data['login'])) return false;
+
+    $user = get_user_info($auth_data['login']);
+
+    if (!empty($user)) {
+        $_SESSION['error'] = 'Пользователь ' . $auth_data['login'] . ' уже существует';
+
+        header("Location: " . get_url('register/php'));
+        die;
+    }
+
+    if ($auth_data['pass'] !== $auth_data['pass2']) {
+        $_SESSION['error'] = 'Пароли не совпадают';
+
+        header("Location: " . get_url('register/php'));
+        die;
+    }
+
+    if (add_user($auth_data['login'], $auth_data['pass'])) {
+        header("Location: " . get_url());
+        die;
+    }
 }
 
 function login($auth_data) {
 
+}
+
+function get_error_message() {
+    $error = '';
+
+    if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+        $error = $_SESSION['error'];
+        $_SESSION['error'] = '';
+    }
+
+    return $error;
 }

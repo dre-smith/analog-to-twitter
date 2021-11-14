@@ -70,14 +70,14 @@ function register_user($auth_data) {
     if (!empty($user)) {
         $_SESSION['error'] = 'Пользователь ' . $auth_data['login'] . ' уже существует';
 
-        header("Location: " . get_url('register/php'));
+        header("Location: " . get_url('register.php'));
         die;
     }
 
     if ($auth_data['pass'] !== $auth_data['pass2']) {
         $_SESSION['error'] = 'Пароли не совпадают';
 
-        header("Location: " . get_url('register/php'));
+        header("Location: " . get_url('register.php'));
         die;
     }
 

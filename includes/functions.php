@@ -49,10 +49,10 @@ function db_query($sql, $exec = false) {
     return db()->query($sql);
 }
 
-function get_posts($user_id = 0) {
+function get_posts($user_id = 0, $sort = false) {
     if ($user_id > 0) return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id WHERE posts.user_id = $user_id;")->fetchAll();
 
-    return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id;")->fetchAll();
+    return db_query("SELECT posts.*, users.name, users.login, users.avatar FROM `posts` JOIN `users` ON users.id = posts.user_id ORDER BY posts.`date` DESC;")->fetchAll();
 }
 
 function get_user_info($login) {
@@ -133,5 +133,5 @@ function add_post($text, $image) {
 
 function delete_post($id) {
     $user_id = $_SESSION['user']['id'];
-    return db_query("", true);
+    return db_query("DELETE FROM `posts` WHERE `id` = $id AND `user_id` = $user_id;", true);
 }

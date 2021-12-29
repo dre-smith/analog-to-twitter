@@ -119,3 +119,19 @@ function get_error_message() {
 function logged_in() {
     return isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id']);
 }
+
+function add_post($text, $image) {
+    $text = trim($text);
+    if (mb_strlen($text) > 255) {
+        $text = mb_substr($text, 0, 250) . ' ...';
+    }
+
+    $user_id = $_SESSION['user']['id'];
+    $sql = "INSERT INTO `posts` (`id`, `user_id`, `text`, `image`) VALUES (NULL, $user_id, '$text', '$image');";
+    return db_query($sql, true);
+}
+
+function delete_post($id) {
+    $user_id = $_SESSION['user']['id'];
+    return db_query("", true);
+}

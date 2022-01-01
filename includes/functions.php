@@ -166,6 +166,14 @@ function delete_like($post_id) {
     $user_id = $_SESSION['user']['id'];
 
     if (empty($post_id)) return false;
-    
+
     return db_query("DELETE FROM `likes` WHERE `post_id` = $post_id AND `user_id` = $user_id;", true);
+}
+
+function get_liked_posts() {
+    $user_id = $_SESSION['user']['id'];
+
+    $sql = "SELECT posts.*, users.name, users.login, users.avatar FROM `likes` JOIN `posts` ON posts.id = likes.post_id JOIN `users` ON users.id = posts.user_id WHERE likes.user_id = $user_id;";
+
+    return db_query($sql)->fetchAll();
 }

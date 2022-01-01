@@ -138,3 +138,17 @@ function delete_post($id) {
     $user_id = $_SESSION['user']['id'];
     return db_query("DELETE FROM `posts` WHERE `id` = $id AND `user_id` = $user_id;", true);
 }
+
+function get_likes_count($post_id) {
+    if (empty($post_id)) return 0;
+
+    return db_query("SELECT COUNT(*) FROM `likes` WHERE `post_id` = $post_id;")->fetchColumn();
+}
+
+function is_post_liked($post_id) {
+    $user_id = $_SESSION['user']['id'];
+
+    if (empty($post_id)) return false;
+
+    return db_query("SELECT * FROM `likes` WHERE `post_id` = $post_id AND `user_id` = $user_id;")->rowCount() > 0;
+}

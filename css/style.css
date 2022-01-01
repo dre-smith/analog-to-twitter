@@ -84,6 +84,11 @@ h1, h2, h3, p {
 	margin: 0;
 }
 
+footer {
+	display: flex;
+    justify-content: end;
+}
+
 /* container */
 
 .container {

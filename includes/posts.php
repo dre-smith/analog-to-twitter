@@ -33,7 +33,7 @@
 
 						if (logged_in() && is_post_liked($post['id'])) $class = 'tweet__like_active';
 					?>
-					<button class="tweet__like <?php echo $class; ?>"><?php echo get_likes_count($post['id']); ?></button>
+					<a href="<?php echo get_url('includes/add_like.php?id=' . $post['id']); ?>" class="tweet__like <?php echo $class; ?>"><?php echo get_likes_count($post['id']); ?></a>
 				</footer>
 			</article>
 		</li>

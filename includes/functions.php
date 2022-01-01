@@ -161,3 +161,11 @@ function add_like($post_id) {
     $sql = "INSERT INTO `likes` (`user_id`, `post_id`) VALUES ($user_id, $post_id);";
     return db_query($sql, true);
 }
+
+function delete_like($post_id) {
+    $user_id = $_SESSION['user']['id'];
+
+    if (empty($post_id)) return false;
+    
+    return db_query("DELETE FROM `likes` WHERE `post_id` = $post_id AND `user_id` = $user_id;", true);
+}
